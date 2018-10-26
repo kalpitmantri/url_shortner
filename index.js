@@ -10,7 +10,7 @@ var indexRouter = require('./routes/routes');
 var app = express();
 
 //db setup
-const connectionURL = process.env.MONGODB_URI || 'mongodb://div:12345@ds031975.mlab.com:31975/redcarp';
+const connectionURL = process.env.MONGODB_URI || 'mongodb://kalpitm98:Kalpit@7293@ds143143.mlab.com:43143/url_shortner';
 mongoose.Promise = global.Promise;
 mongoose.connect(connectionURL,{ 
 	useNewUrlParser: true 
