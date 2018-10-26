@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Url Shortner</title>
+	<link rel="stylesheet" type="text/css" href="https://jenil.github.io/bulmaswatch/journal/bulmaswatch.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+	<section class="hero is-medium is-link is-bold">
+	  <div class="hero-body">
+	    <div class="container">
+	      <h1 class="header title">
+	        Url Shortner 
+	      </h1>
+	    </div>
+	  </div>
+	</section>
+	<div class="container is-fluid">
+		<% if(success==false) {%>
+			<div class="main">
+					
+				<form action="/api/shorten" method="POST">
+					<% if(Myerror !== undefined){%>
+						<div class="notification is-primary">
+					  <%= Myerror %>
+						</div>
+					<% } %>
+					<div class="field is-horizontal">
+					  <div class="field-label is-medium">
+					    <label class="label">URL</label>
+					  </div>
+					  <div class="field-body">
+					    <div class="field">
+					      <div class="control">
+					        <input class="input is-medium" type="text" 
+					        name="url" placeholder="https://example.com">
+					      </div>
+					    </div>
+					  </div>
+					</div>	
+					<div class="field is-horizontal">
+					  <div class="field-label is-medium">
+					    <label class="label">Name</label>
+					  </div>
+					  <div class="field-body">
+					    <div class="field">
+					      <div class="control">
+					        <input class="input is-medium" name="name" type="text" placeholder="Name">
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="shrink-btn">
+						<button class="button is-medium is-success" type="submit">Submit</button>
+					</div> 
+				</form>
+			</div>
+		<% } %>	
+
+		<% if(name !== undefined){ %>
+			<h1 class="title is-1 short-url"><a href="/<%= name %>">https://puny.li/<%= name %></a></h1>
+		<% } %>
+	</div>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script></script>
+</body>
+</html>
